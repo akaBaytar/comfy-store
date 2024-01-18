@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header>
       <div className='py-2 text-xs sm:text-sm text-center text-base-300 bg-primary'>
-        <p className='text-balance text-white'>
+        <p className='text-balance text-white leading-5'>
           FREE EXPRESS INTERNATIONAL DELIVERY - OFF 50%!
           <Link
             to='/products'
