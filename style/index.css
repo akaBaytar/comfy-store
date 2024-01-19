@@ -8,9 +8,17 @@
   }
 }
 
-#root{ 
-  min-height: 100vh; 
-  
+#root {
+  min-height: 100vh;
+
   display: grid;
   grid-template-rows: auto 1fr auto;
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+  @apply bg-neutral opacity-50;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+  @apply bg-primary opacity-100;
 }

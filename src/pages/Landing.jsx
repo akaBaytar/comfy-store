@@ -1,7 +1,12 @@
+import { Fragment } from 'react';
+import { Hero } from '../layouts';
+
 const Landing = () => {
   return (
-    <div>Landing</div>
-  )
-}
+    <Fragment>
+      <Hero />
+    </Fragment>
+  );
+};
 
-export default Landing
+export default Landing;

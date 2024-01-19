@@ -6,9 +6,9 @@ const Home = () => {
   return (
     <Fragment>
       <Header />
-      <section className='aligning py-20 px-6 sm:px-12 lg:px-8'>
+      <main className='aligning py-20 px-6 sm:px-12 lg:px-8'>
         <Outlet />
-      </section>
+      </main>
       <Footer />
     </Fragment>
   );
