@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { FaXTwitter, FaLinkedin, FaGithub } from 'react-icons/fa6';
 
+const date = new Date().getFullYear();
+
 const Footer = () => {
   return (
     <footer className='bg-base-200'>
@@ -55,8 +57,8 @@ const Footer = () => {
           <a className='link link-hover'>Cookie policy</a>
         </nav>
       </div>{' '}
-      <div className='text-center text-xs bg-base-200 pb-4 px-6 sm:px-12 lg:px-8'>
-        <p>Copyright © 2024 - All right reserved</p>
+      <div className='text-center text-xs bg-base-300 py-2'>
+        <p>Copyright © {date} - All right reserved</p>
       </div>
     </footer>
   );

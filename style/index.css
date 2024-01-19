@@ -7,3 +7,10 @@
     @apply mx-auto max-w-6xl px-2 sm:px-8;
   }
 }
+
+#root{ 
+  min-height: 100vh; 
+  
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
