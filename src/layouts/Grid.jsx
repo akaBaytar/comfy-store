@@ -14,12 +14,12 @@ const Grid = () => {
           <Link
             key={product.id}
             to={`/products/${product.id}`}
-            className='card w-full shadow-lg hover:shadow-2xl duration-200'>
-            <figure className='py-2'>
+            className='card w-full shadow-lg group hover:shadow-2xl duration-200'>
+            <figure>
               <img
                 src={image}
                 alt={title}
-                className='rounded-xl h-64 md:h-48 w-full object-cover'
+                className='rounded-t-xl h-64 md:h-48 w-full object-cover group-hover:scale-110 duration-200'
               />
             </figure>
             <div className='card-body items-center text-center'>
