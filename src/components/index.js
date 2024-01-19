@@ -3,3 +3,4 @@ export { default as SubmitButton } from './SubmitButton';
 export { default as Navbar } from './Navbar';
 export { default as NavLinks } from './NavLinks';
 export { default as Carousel } from './Carousel';
+export { default as Error } from './Error';

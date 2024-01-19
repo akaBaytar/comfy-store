@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// navigation links
 export const links = [
   { id: 1, url: '/', text: 'Home' },
   { id: 2, url: '/about', text: 'About' },
@@ -9,8 +10,20 @@ export const links = [
   { id: 6, url: '/orders', text: 'Orders' },
 ];
 
+// base URL
 const URL = 'https://strapi-store-server.onrender.com/api';
 
+// axios
 export const fetchAPI = axios.create({
   baseURL: URL,
 });
+
+// loaders
+export const landing = async () => {
+  const url = '/products?featured=true';
+  const res = await fetchAPI(url);
+
+  const products = res.data.data;
+
+  return { products };
+};
