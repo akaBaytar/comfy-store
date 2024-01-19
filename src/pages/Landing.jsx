@@ -1,10 +1,11 @@
 import { Fragment } from 'react';
-import { Hero } from '../layouts';
+import { Hero,Featured } from '../layouts';
 
 const Landing = () => {
   return (
     <Fragment>
       <Hero />
+      <Featured/>
     </Fragment>
   );
 };

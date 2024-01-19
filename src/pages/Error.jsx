@@ -24,7 +24,12 @@ const Error = () => {
 
   return (
     <main className='grid min-h-screen place-items-center px-8'>
-      <h4 className='text-center font-bold text-4xl'>An error occurred.</h4>
+      <div className='grid place-items-center gap-8'>
+        <h4 className='text-center font-bold text-4xl'>An error occurred.</h4>
+        <Link to='/' className='btn btn-secondary'>
+          GO BACK HOME
+        </Link>
+      </div>
     </main>
   );
 };
