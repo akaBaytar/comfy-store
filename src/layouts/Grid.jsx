@@ -1,12 +1,14 @@
+import PropTypes from 'prop-types';
 import { Link, useLoaderData } from 'react-router-dom';
 import { formattedPrice } from '../util';
 
-const Grid = () => {
+const Grid = ({ title }) => {
   const { products } = useLoaderData();
+  const { reversedProducts } = useLoaderData();
 
   return (
     <div className='pt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3'>
-      {products.map((product) => {
+      {(title === 'featured' ? products : reversedProducts).map((product) => {
         const { title, price, image } = product.attributes;
         const amount = formattedPrice(price);
 
@@ -31,6 +33,10 @@ const Grid = () => {
       })}
     </div>
   );
+};
+
+Grid.propTypes = {
+  title: PropTypes.string,
 };
 
 export default Grid;

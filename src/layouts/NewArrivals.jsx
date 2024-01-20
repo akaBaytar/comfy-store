@@ -4,8 +4,8 @@ import { Title } from '../components';
 const Featured = () => {
   return (
     <section className='pt-20 '>
-      <Title text={'featured products'} />
-      <Grid title='featured'/>
+      <Title text={'new arrivals'} />
+      <Grid title='new arrivals'/>
     </section>
   );
 };

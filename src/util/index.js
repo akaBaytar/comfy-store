@@ -37,12 +37,13 @@ export const fetchAPI = axios.create({
 
 // loaders
 export const landing = async () => {
-  const url = '/products?featured=true';
+  const url = '/products';
   const res = await fetchAPI(url);
 
-  const products = res.data.data;
+  const products = res.data.data.slice(0, 6);
+  const reversedProducts = res.data.data.reverse().slice(0, 6);
 
-  return { products };
+  return { products, reversedProducts };
 };
 
 // displaying price in dollars

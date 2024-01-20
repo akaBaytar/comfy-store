@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { Hero, Categories, Featured, Banner } from '../layouts';
+import { Hero, Categories, Featured, Banner, NewArrivals } from '../layouts';
 
 const Landing = () => {
   return (
@@ -8,6 +8,7 @@ const Landing = () => {
       <Categories />
       <Featured />
       <Banner />
+      <NewArrivals />
     </Fragment>
   );
 };
