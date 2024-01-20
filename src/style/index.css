@@ -55,3 +55,11 @@
   background-position: center;
   background-size: cover;
 }
+
+.scroll-button {
+  @apply h-10 w-10 z-10 p-2 right-5 bottom-20 rounded-full;
+}
+
+.progress-bar {
+  @apply absolute flex items-center justify-center w-8 h-8 hover:w-10 hover:h-10 left-0 top-0 translate-x-1 translate-y-1 hover:translate-x-0 hover:translate-y-0 bg-neutral-content hover:bg-neutral text-neutral hover:text-neutral-content rounded-full duration-200;
+}
