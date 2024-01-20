@@ -47,3 +47,11 @@
 .banners article:nth-child(4) {
   background-image: url('../assets/banner/banner4.jpg');
 }
+
+.cta {
+  background-image: url('../assets/cta/cta.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
