@@ -10,6 +10,23 @@ export const links = [
   { id: 6, url: '/orders', text: 'Orders' },
 ];
 
+// categories
+import category1 from '../assets/categories/beds.png';
+import category2 from '../assets/categories/chairs.png';
+import category3 from '../assets/categories/kids.png';
+import category4 from '../assets/categories/sofas.png';
+import category5 from '../assets/categories/tables.png';
+import category6 from '../assets/categories/cabinets.png';
+
+export const categories = [
+  { id: 1, img: category1, text: 'Beds' },
+  { id: 2, img: category2, text: 'Chairs' },
+  { id: 3, img: category3, text: 'Kids' },
+  { id: 4, img: category4, text: 'Sofas' },
+  { id: 5, img: category5, text: 'Tables' },
+  { id: 6, img: category6, text: 'Cabinets' },
+];
+
 // base URL
 const URL = 'https://strapi-store-server.onrender.com/api';
 

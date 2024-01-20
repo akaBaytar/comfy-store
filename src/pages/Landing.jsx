@@ -1,11 +1,12 @@
 import { Fragment } from 'react';
-import { Hero,Featured } from '../layouts';
+import { Hero, Categories, Featured } from '../layouts';
 
 const Landing = () => {
   return (
     <Fragment>
       <Hero />
-      <Featured/>
+      <Categories />
+      <Featured />
     </Fragment>
   );
 };

@@ -3,7 +3,7 @@ import { Title } from '../components';
 
 const Featured = () => {
   return (
-    <section className='py-20 '>
+    <section className='pt-20 '>
       <Title text={'featured products'} />
       <Grid />
     </section>
