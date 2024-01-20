@@ -4,3 +4,4 @@ export { default as Hero } from './Hero';
 export { default as Featured } from './Featured';
 export { default as Grid } from './Grid';
 export { default as Categories } from './Categories';
+export { default as Banner } from './Banner';

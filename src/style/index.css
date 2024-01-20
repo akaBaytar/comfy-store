@@ -22,3 +22,28 @@
 .swiper-pagination .swiper-pagination-bullet-active {
   @apply bg-primary opacity-100;
 }
+
+.banners article:nth-child(1),
+.banners article:nth-child(2),
+.banners article:nth-child(3),
+.banners article:nth-child(4) {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.banners article:nth-child(1) {
+  background-image: url('../assets/banner/banner3.jpg');
+}
+
+.banners article:nth-child(2) {
+  background-image: url('../assets/banner/banner1.jpg');
+}
+
+.banners article:nth-child(3) {
+  background-image: url('../assets/banner/banner2.jpg');
+}
+
+.banners article:nth-child(4) {
+  background-image: url('../assets/banner/banner4.jpg');
+}
