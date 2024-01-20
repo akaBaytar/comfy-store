@@ -7,4 +7,5 @@ export { default as Categories } from './Categories';
 export { default as Banner } from './Banner';
 export { default as NewArrivals } from './NewArrivals';
 export { default as Blogs } from './Blogs';
-export {default as Cta} from './Cta'
+export { default as Cta } from './Cta';
+export { default as Contact } from './Contact';
