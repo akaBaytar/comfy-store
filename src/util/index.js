@@ -27,6 +27,61 @@ export const categories = [
   { id: 6, img: category6, text: 'Cabinets', count: 3 },
 ];
 
+// blogs
+const date = new Date().getFullYear();
+
+import blog1 from '../assets/blogs/blog1.jpg';
+import blog2 from '../assets/blogs/blog2.jpg';
+import blog3 from '../assets/blogs/blog3.jpg';
+import blog4 from '../assets/blogs/blog4.jpg';
+import blog5 from '../assets/blogs/blog5.jpg';
+import blog6 from '../assets/blogs/blog6.jpg';
+
+export const blogs = [
+  {
+    id: 1,
+    img: blog1,
+    title: 'The Secrets to a Living Room',
+    comments: 1,
+    date: `Mar 7, ${date}`,
+  },
+  {
+    id: 2,
+    img: blog2,
+    title: 'How Can I Use Feng Shui?',
+    comments: 2,
+    date: `Feb 5, ${date}`,
+  },
+  {
+    id: 3,
+    img: blog3,
+    title: 'What’s in a Child’s Bedroom Set?',
+    comments: 4,
+    date: `Jul 13, ${date}`,
+  },
+  {
+    id: 4,
+    img: blog4,
+    title: 'Customer Delights',
+    comments: 3,
+    date: `Oct 18, ${date}`,
+  },
+  {
+    id: 5,
+    img: blog5,
+    title: 'The Art of Mixing Materials',
+    comments: 2,
+    date: `Jun 15, ${date}`,
+  },
+  {
+    id: 6,
+    img: blog6,
+    title: 'Designing the Perfect Workspace',
+    comments: 0,
+    date: `Apr 4, ${date}`,
+  },
+];
+
 // base URL
 const URL = 'https://strapi-store-server.onrender.com/api';
 
