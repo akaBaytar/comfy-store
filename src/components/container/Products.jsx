@@ -6,7 +6,7 @@ import { BsGrid, BsListUl } from 'react-icons/bs';
 
 const Products = () => {
   const { meta } = useLoaderData();
-  const totalProductCount = meta.pagination.total;
+  const { total } = meta.pagination;
 
   const [layout, setLayout] = useState('grid');
 
@@ -22,9 +22,7 @@ const Products = () => {
     <Fragment>
       <div className='flex justify-between items-center mt-8 pb-4 border-b border-base-300'>
         <h4 className='font-medium'>
-          {totalProductCount <= 1
-            ? `${totalProductCount} product`
-            : `${totalProductCount} products`}
+          {total <= 1 ? `${total} product` : `${total} products`}
         </h4>
         <div className='flex gap-x-2'>
           <button
@@ -42,7 +40,7 @@ const Products = () => {
         </div>
       </div>
       <div>
-        {totalProductCount === 0 ? (
+        {total === 0 ? (
           <h5 className='text-xl mt-8'>
             We&apos;re sorry, no products matching your criteria were found.
           </h5>
