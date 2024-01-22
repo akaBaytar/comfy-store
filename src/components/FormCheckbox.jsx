@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const FormCheckbox = ({ label, name, size, defaultChecked }) => {
+const FormCheckbox = ({ label, name, size, defaultValue }) => {
   return (
     <div className='form-control -mt-4'>
       <label htmlFor={name} className='label'>
@@ -10,7 +10,7 @@ const FormCheckbox = ({ label, name, size, defaultChecked }) => {
         type='checkbox'
         name={name}
         id={name}
-        defaultChecked={defaultChecked}
+        defaultChecked={defaultValue}
         className={`checkbox checkbox-primary ${size}`}
       />
     </div>
@@ -21,7 +21,7 @@ FormCheckbox.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   size: PropTypes.string,
-  defaultChecked: PropTypes.bool,
+  defaultValue: PropTypes.string,
 };
 
 export default FormCheckbox;

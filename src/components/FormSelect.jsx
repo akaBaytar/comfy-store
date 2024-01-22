@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const FormSelect = ({ label, name, list, size }) => {
+const FormSelect = ({ label, name, list, size, defaultValue }) => {
   return (
     <div className='form-control'>
       <label htmlFor={name} className='label'>
@@ -9,6 +9,7 @@ const FormSelect = ({ label, name, list, size }) => {
       <select
         name={name}
         id={name}
+        defaultValue={defaultValue}
         className={`select select-bordered ${size}`}>
         {list.map((item) => (
           <option key={item} value={item}>
@@ -23,8 +24,9 @@ const FormSelect = ({ label, name, list, size }) => {
 FormSelect.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
-  list: PropTypes.string,
+  list: PropTypes.array,
   size: PropTypes.string,
+  defaultValue: PropTypes.string,
 };
 
 export default FormSelect;

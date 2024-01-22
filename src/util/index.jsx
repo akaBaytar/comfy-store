@@ -106,13 +106,17 @@ export const product = async ({ params }) => {
   return { product };
 };
 
-export const products = async () => {
+export const products = async ({ request }) => {
+  const params = Object.fromEntries([
+    ...new URL(request.url).searchParams.entries(),
+  ]);
+
   const url = '/products';
-  const res = await fetchAPI(url);
+  const res = await fetchAPI(url, { params });
   const products = res.data.data;
   const meta = res.data.meta;
 
-  return { products, meta };
+  return { products, meta, params };
 };
 
 // displaying price in dollars
