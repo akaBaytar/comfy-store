@@ -102,7 +102,17 @@ export const product = async ({ params }) => {
   const url = '/products/';
   const res = await fetchAPI(`${url}${params.id}`);
   const product = res.data.data;
+
   return { product };
+};
+
+export const products = async () => {
+  const url = '/products';
+  const res = await fetchAPI(url);
+  const products = res.data.data;
+  const meta = res.data.meta;
+
+  return { products, meta };
 };
 
 // displaying price in dollars

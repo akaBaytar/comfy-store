@@ -1,12 +1,12 @@
 import { Fragment } from 'react';
-import { Filters, Pagination, Products as Container } from '../components';
+
+import { Grid, List } from '../../layouts';
 
 const Products = () => {
   return (
     <Fragment>
-      <Filters />
-      <Container />
-      <Pagination />
+      <Grid title='featured' />
+      <List title='featured' />
     </Fragment>
   );
 };
