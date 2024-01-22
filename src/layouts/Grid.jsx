@@ -14,10 +14,7 @@ const Grid = ({ title }) => {
         const amount = formattedPrice(price);
 
         return (
-          <Link
-            to={`/products/${product.id}`}
-            key={product.id}
-            className='rounded-t-xl group'>
+          <div key={product.id} className='rounded-t-xl group'>
             <figure className='overflow-hidden rounded-t-xl border border-b-0 border-base-300'>
               <img
                 src={image}
@@ -26,21 +23,21 @@ const Grid = ({ title }) => {
               />
             </figure>
             <div className='flex justify-between'>
-              <div className='w-1/3 py-2 grid place-items-center rounded-bl-xl border border-base-300 hover:text-secondary duration-200'>
-                <Link to={`/cart`}>
-                  <IoBagOutline className='text-xl' />
-                </Link>
-              </div>
-              <div className='w-1/3 py-2 grid place-items-center border border-l-0 border-base-300 hover:text-secondary duration-200'>
-                <Link to={`/products/${product.id}`}>
-                  <IoEyeOutline className='text-xl' />
-                </Link>
-              </div>
-              <div className='w-1/3 py-2 grid place-items-center rounded-br-xl border border-l-0 border-base-300 hover:text-secondary duration-200'>
-                <Link to={`/login`}>
-                  <IoHeartOutline className='text-xl' />
-                </Link>
-              </div>
+              <Link
+                to={`/cart`}
+                className='w-1/3 py-2 grid place-items-center rounded-bl-xl border border-base-300 hover:text-secondary duration-200'>
+                <IoBagOutline className='text-xl' />
+              </Link>
+              <Link
+                to={`/products/${product.id}`}
+                className='w-1/3 py-2 grid place-items-center border border-l-0 border-base-300 hover:text-secondary duration-200'>
+                <IoEyeOutline className='text-xl' />
+              </Link>
+              <Link
+                to={`/login`}
+                className='w-1/3 py-2 grid place-items-center rounded-br-xl border border-l-0 border-base-300 hover:text-secondary duration-200'>
+                <IoHeartOutline className='text-xl' />
+              </Link>
             </div>
             <div className='bg-base-100 pt-2'>
               <h2 className='capitalize text-center font-bold text-lg'>
@@ -48,7 +45,7 @@ const Grid = ({ title }) => {
               </h2>
               <p className='text-center text-sm text-secondary'>{amount}</p>
             </div>
-          </Link>
+          </div>
         );
       })}
     </div>
