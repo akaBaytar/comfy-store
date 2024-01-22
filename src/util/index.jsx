@@ -82,12 +82,9 @@ export const blogs = [
   },
 ];
 
-// base URL
-const URL = 'https://strapi-store-server.onrender.com/api';
-
 // axios
 export const fetchAPI = axios.create({
-  baseURL: URL,
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
 // loaders
@@ -101,6 +98,13 @@ export const landing = async () => {
   return { products, reversedProducts };
 };
 
+export const product = async ({ params }) => {
+  const url = '/products/';
+  const res = await fetchAPI(`${url}${params.id}`);
+  const product = res.data.data;
+  return { product };
+};
+
 // displaying price in dollars
 export const formattedPrice = (price) => {
   const amount = new Intl.NumberFormat('en-US', {
@@ -109,4 +113,16 @@ export const formattedPrice = (price) => {
   }).format((price / 100).toFixed(2));
 
   return amount;
+};
+
+// generate count - amount for option value
+export const generateOptionValues = (n) => {
+  return Array.from({ length: n }, (_, idx) => {
+    const count = idx + 1;
+    return (
+      <option value={count} key={count}>
+        {count}
+      </option>
+    );
+  });
 };
