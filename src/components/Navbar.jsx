@@ -29,7 +29,7 @@ const Navbar = () => {
 
   return (
     <nav className='bg-base-200'>
-      <div className='navbar px-6 sm:px-12 lg:aligning'>
+      <div className='navbar sm:px-6 lg:px-12 max-w-6xl mx-auto'>
         <div className='navbar-start'>
           <NavLink to='/' className='hidden lg:flex text-2xl items-center'>
             LOGO

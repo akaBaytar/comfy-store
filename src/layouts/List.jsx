@@ -16,11 +16,11 @@ const List = ({ title }) => {
           <Link
             to={`/products/${product.id}`}
             key={product.id}
-            className='px-4 py-2 rounded-xl flex flex-wrap gap-y-4 bg-base-100 shadow-xl'>
+            className='py-2 rounded-xl flex flex-wrap gap-y-4 bg-base-100 shadow-xl'>
             <img
               src={image}
               alt={title}
-              className='h-32 w-32 sm:h-48 sm:w-48 object-cover rounded-xl'
+              className='h-32 w-32 sm:h-48 sm:w-48 lg:w-64 object-cover rounded-xl'
             />
             <div className='ml-4 sm:ml-8 md:ml-16 capitalize'>
               <h3 className='font-medium text-lg'>{title}</h3>

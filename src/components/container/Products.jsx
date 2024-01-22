@@ -39,7 +39,7 @@ const Products = () => {
           </button>
         </div>
       </div>
-      <div>
+      <div className='lg:w-[65rem]'>
         {total === 0 ? (
           <h5 className='text-xl mt-8'>
             We&apos;re sorry, no products matching your criteria were found.
