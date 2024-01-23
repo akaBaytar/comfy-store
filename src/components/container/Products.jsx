@@ -1,10 +1,14 @@
 import { Fragment, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 
+import Spinner from '../Spinner';
 import { Grid, List } from '../../layouts';
 import { BsGrid, BsListUl } from 'react-icons/bs';
 
 const Products = () => {
+  const navigation = useNavigation();
+  const isLoading = navigation.state === 'loading';
+
   const { meta } = useLoaderData();
   const { total } = meta.pagination;
 
@@ -17,6 +21,8 @@ const Products = () => {
         : 'text-base-content'
     }`;
   };
+
+  if (isLoading) return <Spinner />;
 
   return (
     <Fragment>

@@ -1,6 +1,6 @@
 const Spinner = () => {
   return (
-    <div className='mt-20 mx-auto h-screen'>
+    <div className='mt-8 flex justify-center'>
       <span className='loading loading-dots loading-lg'></span>
     </div>
   );
