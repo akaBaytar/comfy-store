@@ -16,7 +16,7 @@ const List = ({ title }) => {
           <Link
             to={`/products/${product.id}`}
             key={product.id}
-            className='p-2  rounded-xl flex flex-wrap gap-y-4 bg-base-100 shadow-xl'>
+            className='p-2 rounded-xl flex flex-wrap gap-y-4 bg-base-100 shadow-xl'>
             <img
               src={image}
               alt={title}

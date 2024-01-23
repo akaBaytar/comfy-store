@@ -7,7 +7,7 @@ const Filters = () => {
   const { search, company, category, shipping, order, price } = params;
 
   return (
-    <Form className='bg-base-200 rounded-xl -mx-1 px-8 py-4 grid gap-y-4 gap-x-8 sm:grid-cols-2 lg:grid-cols-4 items-center'>
+    <Form className='bg-base-200 rounded-xl -mx-1 px-8 py-4 grid gap-y-4 gap-x-8 sm:grid-cols-2 lg:grid-cols-4 items-center lg:width'>
       <FormInput
         type='search'
         label='Search Product'

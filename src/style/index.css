@@ -6,6 +6,11 @@
   .aligning {
     @apply mx-auto max-w-6xl px-2 sm:px-8;
   }
+
+  .width {
+    width: calc(100vw - 8rem);
+    max-width: 67rem;
+  }
 }
 
 #root {
