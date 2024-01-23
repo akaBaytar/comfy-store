@@ -9,7 +9,7 @@
 
   .width {
     width: calc(100vw - 8rem);
-    max-width: 67rem;
+    max-width: 66rem;
   }
 }
 
