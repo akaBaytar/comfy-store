@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import { NavLinks } from '..';
 import {
@@ -26,6 +27,8 @@ const Navbar = () => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
+
+  const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart);
 
   return (
     <nav className='bg-base-200'>
@@ -66,7 +69,7 @@ const Navbar = () => {
             <div className='indicator'>
               <BsCart2 className='w-6 h-6' />
               <span className='badge badge-xs badge-primary indicator-item'>
-                0
+                {numItemsInCart}
               </span>
             </div>
           </NavLink>

@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, useLoaderData } from 'react-router-dom';
+
+import { addItem } from '../../features/cart/cartSlice';
 import { formattedPrice, generateOptionValues } from '../../util';
 
 const Product = () => {
@@ -12,6 +15,23 @@ const Product = () => {
 
   const handleCount = (e) => {
     setCount(+e.target.value);
+  };
+
+  const cartProduct = {
+    cartID: product.id + productColor,
+    productID: product.id,
+    image,
+    title,
+    price,
+    company,
+    count,
+    productColor,
+  };
+
+  const dispatch = useDispatch();
+
+  const addToCart = () => {
+    dispatch(addItem({ product: cartProduct }));
   };
 
   return (
@@ -77,7 +97,9 @@ const Product = () => {
               </select>
             </div>
             <div className='mt-4'>
-              <button className='btn btn-primary w-1/2'>ADD TO CART</button>
+              <button className='btn btn-primary w-1/2' onClick={addToCart}>
+                ADD TO CART
+              </button>
             </div>
           </div>
         </div>
