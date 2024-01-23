@@ -56,7 +56,7 @@ const cartSlice = createSlice({
 
       cartSlice.caseReducers.calculateTotals(state);
 
-      toast.info('Quantity of the selected product has been updated.');
+      toast.info('Amount of the product has been updated.');
     },
 
     clearCart: () => {
