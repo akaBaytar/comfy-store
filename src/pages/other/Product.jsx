@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useLoaderData } from 'react-router-dom';
 
-import { addItem } from '../../features/cart/cartSlice';
+import { addItem } from '../../tools/cart/cartSlice';
 import { formattedPrice, generateOptionValues } from '../../util';
 
 const Product = () => {
