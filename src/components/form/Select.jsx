@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const FormSelect = ({ label, name, list, size, defaultValue }) => {
+const Select = ({ label, name, list, size, defaultValue }) => {
   return (
     <div className='form-control'>
       <label htmlFor={name} className='label'>
@@ -21,7 +21,7 @@ const FormSelect = ({ label, name, list, size, defaultValue }) => {
   );
 };
 
-FormSelect.propTypes = {
+Select.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   list: PropTypes.array,
@@ -29,4 +29,4 @@ FormSelect.propTypes = {
   defaultValue: PropTypes.string,
 };
 
-export default FormSelect;
+export default Select;

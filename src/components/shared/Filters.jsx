@@ -1,5 +1,5 @@
 import { Link, Form, useLoaderData } from 'react-router-dom';
-import { FormInput, FormSelect, FormRange, FormCheckbox } from '../components';
+import { FormInput, FormSelect, FormRange, FormCheckbox } from '..';
 
 const Filters = () => {
   const { meta, params } = useLoaderData();

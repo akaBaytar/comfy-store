@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { links } from '..//util';
+import { links } from '../../util';
 
 const NavLinks = () => {
   return (

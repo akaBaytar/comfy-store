@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-import { formattedPrice } from '../util';
+import { formattedPrice } from '../../util';
 
-const FormRange = ({ label, name, size, price }) => {
+const Range = ({ label, name, size, price }) => {
   const step = 10000;
   const maxPrice = 100000;
 
@@ -34,11 +34,11 @@ const FormRange = ({ label, name, size, price }) => {
   );
 };
 
-FormRange.propTypes = {
+Range.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   size: PropTypes.string,
   price: PropTypes.string,
 };
 
-export default FormRange;
+export default Range;

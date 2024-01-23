@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const FormInput = ({ label, name, type, size, defaultValue }) => {
+const Input = ({ label, name, type, size, defaultValue }) => {
   return (
     <div className='form-control'>
       <label htmlFor={`input-${name}`} className='label'>
@@ -17,7 +17,7 @@ const FormInput = ({ label, name, type, size, defaultValue }) => {
   );
 };
 
-FormInput.propTypes = {
+Input.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   type: PropTypes.string,
@@ -25,4 +25,4 @@ FormInput.propTypes = {
   defaultValue: PropTypes.string,
 };
 
-export default FormInput;
+export default Input;

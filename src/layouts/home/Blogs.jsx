@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Title } from '../components';
-import { blogs } from '../util';
+import { Title } from '../../components';
+import { blogs } from '../../util';
 
 const Blogs = () => {
   return (

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link, useLoaderData } from 'react-router-dom';
-import { formattedPrice } from '../util';
+import { formattedPrice } from '../../util';
 
 const List = ({ title }) => {
   const { products } = useLoaderData();

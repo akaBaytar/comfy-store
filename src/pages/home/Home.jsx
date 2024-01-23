@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Header, Footer, Cta, Contact } from '../layouts';
-import { Button } from '../components';
+import { Header, Footer, Cta, Contact } from '../../layouts';
+import { ScrollButton } from '../../components';
 
 const Home = () => {
   return (
@@ -13,7 +13,7 @@ const Home = () => {
       <Cta />
       <Contact />
       <Footer />
-      <Button />
+      <ScrollButton />
     </Fragment>
   );
 };

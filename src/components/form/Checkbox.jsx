@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const FormCheckbox = ({ label, name, size, defaultValue }) => {
+const Checkbox = ({ label, name, size, defaultValue }) => {
   return (
     <div className='form-control -mt-4'>
       <label htmlFor={name} className='label'>
@@ -17,11 +17,11 @@ const FormCheckbox = ({ label, name, size, defaultValue }) => {
   );
 };
 
-FormCheckbox.propTypes = {
+Checkbox.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   size: PropTypes.string,
   defaultValue: PropTypes.string,
 };
 
-export default FormCheckbox;
+export default Checkbox;

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link, useLoaderData } from 'react-router-dom';
 import { IoBagOutline, IoEyeOutline, IoHeartOutline } from 'react-icons/io5';
-import { formattedPrice } from '../util';
+import { formattedPrice } from '../../util';
 
 const Grid = ({ title }) => {
   const { products } = useLoaderData();

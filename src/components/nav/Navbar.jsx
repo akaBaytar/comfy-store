@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { NavLinks } from '../components';
+import { NavLinks } from '..';
 import {
   BsCart2,
   BsPerson,

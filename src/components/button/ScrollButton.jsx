@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { FaChevronUp } from 'react-icons/fa';
 
-const Button = () => {
+const ScrollButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const buttonRef = useRef(null);
@@ -44,4 +44,4 @@ const Button = () => {
   );
 };
 
-export default Button;
+export default ScrollButton;

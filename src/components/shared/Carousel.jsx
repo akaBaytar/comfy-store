@@ -2,10 +2,10 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, A11y, Autoplay } from 'swiper/modules';
 
-import image1 from '../assets/hero/hero1.webp';
-import image2 from '../assets/hero/hero2.webp';
-import image3 from '../assets/hero/hero3.webp';
-import image4 from '../assets/hero/hero4.webp';
+import image1 from '../../assets/hero/hero1.webp';
+import image2 from '../../assets/hero/hero2.webp';
+import image3 from '../../assets/hero/hero3.webp';
+import image4 from '../../assets/hero/hero4.webp';
 
 const carousel = [image1, image2, image3, image4];
 

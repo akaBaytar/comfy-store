@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react';
 import { useLoaderData, useNavigation } from 'react-router-dom';
 
-import Spinner from '../Spinner';
+import Spinner from '../shared/Spinner';
 import { Grid, List } from '../../layouts';
 import { BsGrid, BsListUl } from 'react-icons/bs';
 

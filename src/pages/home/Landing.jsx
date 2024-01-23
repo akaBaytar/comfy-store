@@ -5,8 +5,8 @@ import {
   Featured,
   Banner,
   NewArrivals,
-  Blogs
-} from '../layouts';
+  Blogs,
+} from '../../layouts';
 
 const Landing = () => {
   return (
