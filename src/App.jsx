@@ -16,7 +16,7 @@ import {
 
 import { Error as ErrorElement } from './components';
 
-import { landing, product, products } from './util';
+import { landing, product, products, register } from './util';
 
 const router = createBrowserRouter([
   {
@@ -69,6 +69,7 @@ const router = createBrowserRouter([
     path: '/register',
     element: <Register />,
     errorElement: <Error />,
+    action: register,
   },
 ]);
 
