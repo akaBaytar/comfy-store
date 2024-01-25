@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleTheme } from '../../tools/user/userSlice';
 import { NavLinks } from '..';
 import {
   BsCart2,
@@ -11,22 +10,9 @@ import {
   BsSunFill,
 } from 'react-icons/bs';
 
-const getThemeFromLocalStorage = () => {
-  return localStorage.getItem('theme') || 'dark';
-};
-
 const Navbar = () => {
-  const [theme, setTheme] = useState(getThemeFromLocalStorage);
-
-  const handleTheme = () => {
-    const changeTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(changeTheme);
-  };
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+  const dispatch = useDispatch();
+  const handleTheme = () => dispatch(toggleTheme());
 
   const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart);
 
