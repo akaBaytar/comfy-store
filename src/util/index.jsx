@@ -1,6 +1,15 @@
 import axios from 'axios';
+
 import { redirect } from 'react-router-dom';
+
 import { toast } from 'react-toastify';
+import { login } from '../tools/user/userSlice';
+
+// themes
+export const themes = {
+  light: 'light',
+  dark: 'dark',
+};
 
 // navigation links
 export const links = [
@@ -122,7 +131,7 @@ export const products = async ({ request }) => {
 };
 
 // actions
-export const register = async ({ request }) => {
+export const registerAction = async ({ request }) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
   const url = '/auth/local/register';
@@ -141,6 +150,29 @@ export const register = async ({ request }) => {
     return redirect('/register');
   }
 };
+
+export const loginAction =
+  (store) =>
+  async ({ request }) => {
+    const formData = await request.formData();
+    const data = Object.fromEntries(formData);
+    const url = '/auth/local';
+
+    try {
+      const res = await fetchAPI.post(url, data);
+      store.dispatch(login(res.data));
+
+      toast.success('Logged in successfully.');
+      return redirect('/');
+    } catch (error) {
+      const errorMessage = error
+        ? error.response?.data?.error?.message
+        : 'Please check the information you entered.';
+
+      toast.error(errorMessage);
+      return redirect('/login');
+    }
+  };
 
 // displaying price in dollars
 export const formattedPrice = (price) => {

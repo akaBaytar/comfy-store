@@ -13,15 +13,23 @@ const Login = () => {
         <div className='mt-4'>
           <SubmitButton text='Login' />
         </div>
-        <button type='button' className='btn btn-secondary btn-block'>
-          Guest User
-        </button>
         <p className='text-center'>
           Not a member yet?
           <Link to='/register' className='link link-hover link-primary ml-1'>
             Register
           </Link>
         </p>
+        <div className='mt-4 text-xs bg-base-200 px-2 py-1 rounded-lg'>
+          <p>You can log in as a demo user with the following information;</p>
+          <p className='mt-2'>
+            <strong>Email: </strong>
+            <code>test@test.com</code>
+          </p>
+          <p>
+            <strong>Password: </strong>
+            <code>secret</code>
+          </p>
+        </div>
       </Form>
     </section>
   );

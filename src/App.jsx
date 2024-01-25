@@ -15,8 +15,9 @@ import {
 } from './pages';
 
 import { Error as ErrorElement } from './components';
+import { landing, product, products, registerAction, loginAction } from './util';
 
-import { landing, product, products, register } from './util';
+import { store } from './tools/store';
 
 const router = createBrowserRouter([
   {
@@ -64,12 +65,13 @@ const router = createBrowserRouter([
     path: '/login',
     element: <Login />,
     errorElement: <Error />,
+    action: loginAction(store),
   },
   {
     path: '/register',
     element: <Register />,
     errorElement: <Error />,
-    action: register,
+    action: registerAction,
   },
 ]);
 
