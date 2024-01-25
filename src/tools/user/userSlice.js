@@ -13,7 +13,7 @@ const getThemeFromLocalStorage = () => {
 };
 
 const initialState = {
-  user: { username: '' },
+  user: { username: 'Burak B.' },
   theme: getThemeFromLocalStorage(),
 };
 
@@ -23,7 +23,11 @@ const userSlice = createSlice({
   reducers: {
     login: (state, action) => {},
 
-    logout: (state) => {},
+    logout: (state) => {
+      state.user = null;
+      localStorage.removeItem('user');
+      toast.success('Logged out successfully.');
+    },
 
     toggleTheme: (state) => {
       const { light, dark } = themes;

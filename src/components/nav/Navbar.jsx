@@ -14,6 +14,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const handleTheme = () => dispatch(toggleTheme());
 
+  const user = useSelector((state) => state.userState.user);
   const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart);
 
   return (
@@ -48,7 +49,9 @@ const Navbar = () => {
             <BsMoonFill className='swap-on w-5 h-5' />
             <BsSunFill className='swap-off w-5 h-5' />
           </label>
-          <NavLink to='/login' className='btn btn-ghost btn-sm'>
+          <NavLink
+            to={user ? '/orders' : '/login'}
+            className='btn btn-ghost btn-sm'>
             <BsPerson className='w-6 h-6' />
           </NavLink>
           <NavLink to='/cart' className='btn btn-ghost btn-sm'>
