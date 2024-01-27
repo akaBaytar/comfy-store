@@ -2,6 +2,7 @@ export { default as FormInput } from './form/Input';
 export { default as FormSelect } from './form/Select';
 export { default as FormRange } from './form/Range';
 export { default as FormCheckbox } from './form/Checkbox';
+export { default as FormCheckout } from './form/Checkout';
 
 export { default as SubmitButton } from './button/SubmitButton';
 export { default as ScrollButton } from './button/ScrollButton';

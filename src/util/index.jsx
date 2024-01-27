@@ -130,6 +130,17 @@ export const products = async ({ request }) => {
   return { products, meta, params };
 };
 
+export const checkout = (store) => () => {
+  const user = store.getState().userState.user;
+
+  if (!user) {
+    toast.warning('You must be logged in to checkout.');
+    return redirect('/login');
+  }
+
+  return null;
+};
+
 // actions
 export const registerAction = async ({ request }) => {
   const formData = await request.formData();
