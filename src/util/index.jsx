@@ -1,9 +1,9 @@
 import axios from 'axios';
-
+import { toast } from 'react-toastify';
 import { redirect } from 'react-router-dom';
 
-import { toast } from 'react-toastify';
 import { login } from '../tools/user/userSlice';
+import { clearCart } from '../tools/cart/cartSlice';
 
 // themes
 export const themes = {
@@ -182,6 +182,50 @@ export const loginAction =
 
       toast.error(errorMessage);
       return redirect('/login');
+    }
+  };
+
+export const checkoutAction =
+  (store) =>
+  async ({ request }) => {
+    const formData = await request.formData();
+    const { name, address } = Object.fromEntries(formData);
+
+    const user = store.getState().userState.user;
+    const { cartItems, orderTotal, numItemsInCart } =
+      store.getState().cartState;
+
+    const info = {
+      name,
+      address,
+      chargeTotal: orderTotal,
+      orderTotal: formattedPrice(orderTotal),
+      cartItems,
+      numItemsInCart,
+    };
+
+    try {
+      const url = '/orders';
+      await fetchAPI.post(
+        url,
+        { data: info },
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
+
+      store.dispatch(clearCart());
+      toast.success('Order placed successfully.');
+      return redirect('/orders');
+    } catch (error) {
+      const errorMessage = error
+        ? error.response?.data?.error?.message
+        : 'An error occurred.';
+
+      toast.error(errorMessage);
+      return redirect('/checkout');
     }
   };
 
