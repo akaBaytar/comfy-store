@@ -5,7 +5,7 @@ import { useNavigate, useLoaderData } from 'react-router-dom';
 import { clearCart } from '../../tools/cart/cartSlice';
 import { logout } from '../../tools/user/userSlice';
 
-import { OrdersList, Pagination, Title } from '../../components';
+import { OrdersList, PaginationForLongLists, Title } from '../../components';
 
 const Orders = () => {
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ const Orders = () => {
       ) : (
         <Fragment>
           <OrdersList />
-          <Pagination />
+          <PaginationForLongLists />
         </Fragment>
       )}
     </section>

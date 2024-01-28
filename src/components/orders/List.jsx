@@ -19,7 +19,7 @@ const List = () => {
               <th>Address</th>
               <th>Products</th>
               <th>Cost</th>
-              <th className='hidden sm:block'>Date</th>
+              <th className='hidden lg:block'>Date</th>
             </tr>
           </thead>
           <tbody>
@@ -37,7 +37,7 @@ const List = () => {
                   <td>{address}</td>
                   <td>{numItemsInCart}</td>
                   <td>{orderTotal}</td>
-                  <td>{date}</td>
+                  <td className='hidden lg:block'>{date}</td>
                 </tr>
               );
             })}

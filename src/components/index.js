@@ -7,8 +7,9 @@ export { default as FormCheckout } from './form/Checkout';
 export { default as SubmitButton } from './button/SubmitButton';
 export { default as ScrollButton } from './button/ScrollButton';
 
-export { default as Pagination } from './container/Pagination';
 export { default as Products } from './container/Products';
+export { default as Pagination } from './container/Pagination';
+export { default as PaginationForLongLists } from './container/PaginationForLongLists';
 
 export { default as Navbar } from './nav/Navbar';
 export { default as NavLinks } from './nav/NavLinks';
