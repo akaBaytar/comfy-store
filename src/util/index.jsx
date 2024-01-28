@@ -141,6 +141,46 @@ export const checkout = (store) => () => {
   return null;
 };
 
+export const orders =
+  (store) =>
+  async ({ request }) => {
+    const user = store.getState().userState.user;
+
+    if (!user) {
+      toast.warning('You must be logged in to check your orders.');
+      return redirect('/login');
+    }
+
+    const params = Object.fromEntries([
+      ...new URL(request.url).searchParams.entries(),
+    ]);
+
+    try {
+      const url = '/orders';
+      const res = await fetchAPI(url, {
+        params,
+        headers: { Authorization: `Bearer ${user.token}` },
+      });
+
+      const orders = res.data.data;
+      const meta = res.data.meta;
+
+      return { orders, meta };
+    } catch (error) {
+      const errorMessage = error
+        ? error.response?.data?.error?.message
+        : 'An error occurred.';
+
+      toast.error(errorMessage);
+
+      if (error.response.status === 401 || error.response.status === 403) {
+        return redirect('/login');
+      }
+
+      return redirect('/orders');
+    }
+  };
+
 // actions
 export const registerAction = async ({ request }) => {
   const formData = await request.formData();
@@ -226,7 +266,10 @@ export const checkoutAction =
 
       toast.error(errorMessage);
 
-      if (error.response.status === 401) return redirect('/login');
+      if (error.response.status === 401 || error.response.status === 403) {
+        return redirect('/login');
+      }
+
       return redirect('/checkout');
     }
   };

@@ -22,3 +22,5 @@ export { default as Spinner } from './shared/Spinner';
 export { default as Total } from './cart/Total';
 export { default as Item } from './cart/Item';
 export { default as Items } from './cart/Items';
+
+export { default as OrdersList } from './orders/List';

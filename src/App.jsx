@@ -24,6 +24,7 @@ import {
   registerAction,
   loginAction,
   checkoutAction,
+  orders,
 } from './util';
 
 import { store } from './tools/store';
@@ -69,6 +70,7 @@ const router = createBrowserRouter([
       {
         path: 'orders',
         element: <Orders />,
+        loader: orders(store),
       },
     ],
   },
