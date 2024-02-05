@@ -99,7 +99,7 @@ export const fetchAPI = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
 });
 
-// query
+// queries
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -108,10 +108,39 @@ export const queryClient = new QueryClient({
   },
 });
 
+const featuredProductsQuery = {
+  queryKey: ['featuredProducts'],
+  queryFn: () => fetchAPI('/products'),
+};
+
+const singleProductQuery = (id) => {
+  return {
+    queryKey: ['singleProduct', id],
+    queryFn: () => fetchAPI(`/products/${id}`),
+  };
+};
+
+const allProductsQuery = (queryParams) => {
+  const { search, category, company, sort, price, shipping, page } =
+    queryParams;
+  return {
+    queryKey: [
+      'products',
+      search ?? '',
+      category ?? 'all',
+      company ?? 'all',
+      sort ?? 'a-z',
+      price ?? 100000,
+      shipping ?? false,
+      page ?? 1,
+    ],
+    queryFn: () => fetchAPI.get('/products', { params: queryParams }),
+  };
+};
+
 // loaders
 export const landing = (queryClient) => async () => {
-  const url = '/products';
-  const res = await fetchAPI(url);
+  const res = await queryClient.ensureQueryData(featuredProductsQuery);
 
   const products = res.data.data.slice(0, 6);
   const reversedProducts = res.data.data.reverse().slice(0, 6);
@@ -122,8 +151,10 @@ export const landing = (queryClient) => async () => {
 export const product =
   (queryClient) =>
   async ({ params }) => {
-    const url = '/products/';
-    const res = await fetchAPI(`${url}${params.id}`);
+    const res = await queryClient.ensureQueryData(
+      singleProductQuery(params.id)
+    );
+
     const product = res.data.data;
 
     return { product };
@@ -136,8 +167,7 @@ export const products =
       ...new URL(request.url).searchParams.entries(),
     ]);
 
-    const url = '/products';
-    const res = await fetchAPI(url, { params });
+    const res = await queryClient.ensureQueryData(allProductsQuery(params));
     const products = res.data.data;
     const meta = res.data.meta;
 
