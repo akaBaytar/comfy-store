@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { redirect } from 'react-router-dom';
+import { QueryClient } from '@tanstack/react-query';
 
 import { login } from '../tools/user/userSlice';
 import { clearCart } from '../tools/cart/cartSlice';
@@ -98,8 +99,17 @@ export const fetchAPI = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
 });
 
+// query
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5,
+    },
+  },
+});
+
 // loaders
-export const landing = async () => {
+export const landing = (queryClient) => async () => {
   const url = '/products';
   const res = await fetchAPI(url);
 
@@ -109,26 +119,30 @@ export const landing = async () => {
   return { products, reversedProducts };
 };
 
-export const product = async ({ params }) => {
-  const url = '/products/';
-  const res = await fetchAPI(`${url}${params.id}`);
-  const product = res.data.data;
+export const product =
+  (queryClient) =>
+  async ({ params }) => {
+    const url = '/products/';
+    const res = await fetchAPI(`${url}${params.id}`);
+    const product = res.data.data;
 
-  return { product };
-};
+    return { product };
+  };
 
-export const products = async ({ request }) => {
-  const params = Object.fromEntries([
-    ...new URL(request.url).searchParams.entries(),
-  ]);
+export const products =
+  (queryClient) =>
+  async ({ request }) => {
+    const params = Object.fromEntries([
+      ...new URL(request.url).searchParams.entries(),
+    ]);
 
-  const url = '/products';
-  const res = await fetchAPI(url, { params });
-  const products = res.data.data;
-  const meta = res.data.meta;
+    const url = '/products';
+    const res = await fetchAPI(url, { params });
+    const products = res.data.data;
+    const meta = res.data.meta;
 
-  return { products, meta, params };
-};
+    return { products, meta, params };
+  };
 
 export const checkout = (store) => () => {
   const user = store.getState().userState.user;

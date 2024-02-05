@@ -1,4 +1,5 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { QueryClientProvider } from '@tanstack/react-query';
 
 import {
   About,
@@ -25,6 +26,7 @@ import {
   loginAction,
   checkoutAction,
   orders,
+  queryClient,
 } from './util';
 
 import { store } from './tools/store';
@@ -39,19 +41,19 @@ const router = createBrowserRouter([
         index: true,
         element: <Landing />,
         errorElement: <ErrorElement />,
-        loader: landing,
+        loader: landing(queryClient),
       },
       {
         path: 'products',
         element: <Products />,
         errorElement: <ErrorElement />,
-        loader: products,
+        loader: products(queryClient),
       },
       {
         path: 'products/:id',
         element: <Product />,
         errorElement: <ErrorElement />,
-        loader: product,
+        loader: product(queryClient),
       },
       {
         path: 'cart',
@@ -65,12 +67,12 @@ const router = createBrowserRouter([
         path: 'checkout',
         element: <Checkout />,
         loader: checkout(store),
-        action: checkoutAction(store),
+        action: checkoutAction(store, queryClient),
       },
       {
         path: 'orders',
         element: <Orders />,
-        loader: orders(store),
+        loader: orders(store, queryClient),
       },
     ],
   },
@@ -89,7 +91,11 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  return <RouterProvider router={router}></RouterProvider>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 };
 
 export default App;
