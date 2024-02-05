@@ -138,6 +138,21 @@ const allProductsQuery = (queryParams) => {
   };
 };
 
+const ordersQuery = (params, user) => {
+  return {
+    queryKey: [
+      'orders',
+      user.username,
+      params.page ? parseInt(params.page) : 1,
+    ],
+    queryFn: () =>
+      fetchAPI('/orders', {
+        params,
+        headers: { Authorization: `Bearer ${user.token}` },
+      }),
+  };
+};
+
 // loaders
 export const landing = (queryClient) => async () => {
   const res = await queryClient.ensureQueryData(featuredProductsQuery);
@@ -186,7 +201,7 @@ export const checkout = (store) => () => {
 };
 
 export const orders =
-  (store) =>
+  (store, queryClient) =>
   async ({ request }) => {
     const user = store.getState().userState.user;
 
@@ -200,11 +215,7 @@ export const orders =
     ]);
 
     try {
-      const url = '/orders';
-      const res = await fetchAPI(url, {
-        params,
-        headers: { Authorization: `Bearer ${user.token}` },
-      });
+      const res = await queryClient.ensureQueryData(ordersQuery(params, user));
 
       const orders = res.data.data;
       const meta = res.data.meta;
@@ -217,7 +228,7 @@ export const orders =
 
       toast.error(errorMessage);
 
-      if (error.response.status === 401 || error.response.status === 403) {
+      if (error?.response?.status === 401 || error?.response?.status === 403) {
         return redirect('/login');
       }
 
@@ -270,7 +281,7 @@ export const loginAction =
   };
 
 export const checkoutAction =
-  (store) =>
+  (store, queryClient) =>
   async ({ request }) => {
     const formData = await request.formData();
     const { name, address } = Object.fromEntries(formData);
@@ -300,6 +311,7 @@ export const checkoutAction =
         }
       );
 
+      queryClient.removeQueries(['orders']);
       store.dispatch(clearCart());
       toast.success('Order placed successfully.');
       return redirect('/orders');

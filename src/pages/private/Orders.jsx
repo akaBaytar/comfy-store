@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useQueryClient } from '@tanstack/react-query';
 import { useNavigate, useLoaderData } from 'react-router-dom';
 
 import { clearCart } from '../../tools/cart/cartSlice';
@@ -12,12 +13,14 @@ const Orders = () => {
   const navigate = useNavigate();
 
   const user = useSelector((state) => state.userState.user);
+  const queryClient = useQueryClient();
 
   const handleLogout = () => {
     if (window.confirm('Are you sure you want to log out?')) {
       navigate('/');
       dispatch(clearCart());
       dispatch(logout());
+      queryClient.removeQueries();
     }
   };
 
