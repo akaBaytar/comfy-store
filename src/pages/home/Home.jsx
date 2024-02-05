@@ -1,9 +1,15 @@
-import { Fragment } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Fragment, useLayoutEffect } from 'react';
+import { Outlet, useLocation, ScrollRestoration } from 'react-router-dom';
+
 import { Header, Footer, Cta, Contact } from '../../layouts';
 import { ScrollButton } from '../../components';
 
 const Home = () => {
+  const { pathname } = useLocation();
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <Fragment>
       <Header />
@@ -13,6 +19,7 @@ const Home = () => {
       <Cta />
       <Contact />
       <Footer />
+      <ScrollRestoration />
       <ScrollButton />
     </Fragment>
   );
