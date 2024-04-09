@@ -8,9 +8,11 @@ const Footer = () => {
     <footer className='bg-base-200'>
       <div className='footer footer-center md:footer py-8 px-6 sm:px-12 lg:aligning'>
         <aside>
-          <p className='text-2xl font-bold btn btn-active btn-primary cursor-default'>
+          <Link
+            to='/'
+            className='text-2xl font-bold btn btn-active'>
             C
-          </p>
+          </Link>
           <p className='font-semibold'>Comfy Store Ltd.</p>
           <p className='font-semibold'>
             Elevating comfort, redefining style since 1992
