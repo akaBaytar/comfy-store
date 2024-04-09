@@ -12,7 +12,7 @@ export default {
     themes: [
       {
         dark: {
-          primary: '#6B240C',
+          primary: '#9a3412',
 
           secondary: '#c2410c',
 
